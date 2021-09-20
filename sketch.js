@@ -37,17 +37,17 @@ function preload(){
 function setup(){
   
 createCanvas(1200,300);
-// Moving background
+//Mover el fondo
 path=createSprite(100,150);
 path.addImage(pathImg);
 path.velocityX = -5;
 
-//creating boy running
+//crear sprite de mainCyclist
 mainCyclist  = createSprite(70,150);
 mainCyclist.addAnimation("SahilRunning",mainRacerImg1);
 mainCyclist.scale=0.07;
   
-//set collider for mainCyclist
+//establecer el set collider for mainCyclist
 
   
 gameOver = createSprite(650,150);
@@ -67,7 +67,7 @@ function draw() {
   drawSprites();
   textSize(20);
   fill(255);
-  text("Distance: "+ distance,900,30);
+  text("Distancia: "+ distance,900,30);
   
   if(gameState===PLAY){
     
@@ -79,17 +79,17 @@ function draw() {
    edges= createEdgeSprites();
    mainCyclist .collide(edges);
   
-  //code to reset the background
+  //código para reiniciar el fondo
   if(path.x < 0 ){
     path.x = width/2;
   }
   
-    //code to play cycle bell sound
+    //código para reproducir el sonido de la campana de la bicicleta
   if(keyDown("space")) {
     cycleBell.play();
   }
   
-  //creating continous opponent players
+  //crear jugadores oponentes de manera continua
   var select_oppPlayer = Math.round(random(1,3));
   
   if (World.frameCount % 150 == 0) {
@@ -122,7 +122,7 @@ function draw() {
     
 }else if (gameState === END) {
     gameOver.visible = true;
-    //Add code to show restart game instrution in text here
+    //Agregar aquí el código para mostrar las instrucciones para reiniciar el juego
   
   
     path.velocityX = 0;
@@ -138,7 +138,7 @@ function draw() {
     redCG.setVelocityXEach(0);
     redCG.setLifetimeEach(-1);
 
-    //write condition for calling reset( )
+    //escribir condición para llamar a reset()
 }
 }
 
@@ -169,7 +169,7 @@ function redCyclists(){
         redCG.add(player3);
 }
 
-//create reset function here
+//crear aquí función reset
 
 
 
